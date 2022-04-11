@@ -1,0 +1,175 @@
+SQL> ascii('A');
+SP2-0042: unknown command "ascii('A')" - rest of line ignored.
+SQL> ASCII('A');
+SP2-0042: unknown command "ASCII('A')" - rest of line ignored.
+SQL> SELECT CHR(65),CHR(97),FROM dual;
+SELECT CHR(65),CHR(97),FROM dual
+                       *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> SELECT CHR(65),CHR(97) FROM dual;
+
+C C                                                                             
+- -                                                                             
+A a                                                                             
+
+SQL> SELECT CONCAT('firstName','lastName') Patient_full_name FROM covid_patients_details;
+
+PATIENT_FULL_NAME                                                               
+-----------------                                                               
+firstNamelastName                                                               
+firstNamelastName                                                               
+
+SQL> select length('Sql Tutorial') as len from dual;
+
+       LEN                                                                      
+----------                                                                      
+        12                                                                      
+
+SQL> lower('HOW');
+SP2-0734: unknown command beginning "lower('HOW..." - rest of line ignored.
+SQL> select lower('HOW') from dual;
+
+LOW                                                                             
+---                                                                             
+how                                                                             
+
+SQL> SELECT ASCII('A') FROM dual;
+
+ASCII('A')                                                                      
+----------                                                                      
+        65                                                                      
+
+SQL> select upper('holwoo') from dual;
+
+UPPER(                                                                          
+------                                                                          
+HOLWOO                                                                          
+
+SQL> SELECT LPAD(&#39;Oracle&#39;,10,&#39;.&#39;) lapd_doted from Dual;
+SELECT LPAD(&#39;Oracle&#39;,10,&#39;.&#39;) lapd_doted from Dual
+             *
+ERROR at line 1:
+ORA-00911: invalid character 
+
+
+SQL> SELECT LPAD('Oracle',10,'.') lapd_doted from Dual;
+
+LAPD_DOTED                                                                      
+----------                                                                      
+....Oracle                                                                      
+
+SQL> SELECT LPAD('RAM',7) lapd_exa from Dual;
+
+LAPD_EX                                                                         
+-------                                                                         
+    RAM                                                                         
+
+SQL> Select
+  2  LTRIM(&#39;datawarehousing&#39;,&#39;ing&#39;)
+  3  trim1 , LTRIM(&#39;datawarehousing &#39;)
+  4  trim2
+  5  , LTRIM(&#39; datawarehousing&#39;) trim3
+  6  , LTRIM(&#39;datawarehousing&#39;,&#39;data&#39;)
+  7  , LTRIM(&#39;datawarehousing&#39;,&#39;data&#39;);
+LTRIM(&#39;datawarehousing&#39;,&#39;ing&#39;)
+       *
+ERROR at line 2:
+ORA-00911: invalid character 
+
+
+SQL> SELECT
+  2  LTRIM ('datawarehousing','ing')
+  3  trim1,LTRIM('datawarehousing')
+  4  trim2,LTRIM('datawarehousing')trim3,
+  5  LTRIM('datawarehousing','data')
+  6  trim4 from dual;
+
+TRIM1           TRIM2           TRIM3           TRIM4                           
+--------------- --------------- --------------- -----------                     
+datawarehousing datawarehousing datawarehousing warehousing                     
+
+SQL> SELECT TRIM ('Oracle')trim1,TRIM('Oracle')trim2 FROM Dual;
+
+TRIM1  TRIM2                                                                    
+------ ------                                                                   
+Oracle Oracle                                                                   
+
+SQL> SELECT REPLACE("Oracle","Ora","Arti")replace_exa FROM Dual;
+SELECT REPLACE("Oracle","Ora","Arti")replace_exa FROM Dual
+                              *
+ERROR at line 1:
+ORA-00904: "Arti": invalid identifier 
+
+
+SQL> SELECT ABS(-25) "Abs" FROM DUAL;
+
+       Abs                                                                      
+----------                                                                      
+        25                                                                      
+
+SQL> SELECT ACOS(.28) "Arc_Cosine" FROM DUAL;
+
+Arc_Cosine                                                                      
+----------                                                                      
+1.28700222                                                                      
+
+SQL> SELECT ASIN(.6) "Arc_Cosine" FROM DUAL;
+
+Arc_Cosine                                                                      
+----------                                                                      
+.643501109                                                                      
+
+SQL> SELECT ATAN(.6) "Arc_Cosine" FROM DUAL;
+
+Arc_Cosine                                                                      
+----------                                                                      
+  .5404195                                                                      
+
+SQL> SELECT CEIL(239.8) FROM DUAL;
+
+CEIL(239.8)                                                                     
+-----------                                                                     
+        240                                                                     
+
+SQL> SELECT FLOOR (239.8) FROM DUAL;
+
+FLOOR(239.8)                                                                    
+------------                                                                    
+         239                                                                    
+
+SQL> SELECT CEIL(239.8) "Mod" FROM DUAL;
+
+       Mod                                                                      
+----------                                                                      
+       240                                                                      
+
+SQL> SELECT POWER(3,2) "Power" FROM DUAL;
+
+     Power                                                                      
+----------                                                                      
+         9                                                                      
+
+SQL> SELECT SYSDATE,ADD_MONTHS(SYSDATE,2),ADD_MONTHS(SYSDATE,-2)FROM
+  2  DUAL;
+
+SYSDATE   ADD_MONTH ADD_MONTH                                                   
+--------- --------- ---------                                                   
+09-FEB-22 09-APR-22 09-DEC-21                                                   
+
+SQL> SELECT NEXT_DAY('31-Aug-18','SUN') "FIRST MONDAY OF SEPTEMBER" FROM DUAL;
+
+FIRST MON                                                                       
+---------                                                                       
+02-SEP-18                                                                       
+
+SQL> SELECT SYSDATE,ROUND(SYSDATE,'MM'),
+  2  ROUND(SYSDATE,'YYYY')FROM DUAL;
+
+SYSDATE   ROUND(SYS ROUND(SYS                                                   
+--------- --------- ---------                                                   
+09-FEB-22 01-FEB-22 01-JAN-22                                                   
+
+SQL> spool off
